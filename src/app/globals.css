@@ -1,0 +1,315 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Zorova design tokens — Phase 1 (Tailwind v4 @theme)
+   All values sourced from .planning/phases/01-foundation/01-UI-SPEC.md
+   --------------------------------------------------------------------------- */
+
+@theme {
+  /* Color palette */
+  --color-text: #09080a;
+  --color-bg: #f6f4f9;
+  --color-surface: #ffffff;
+  --color-primary: #3e1b7c;
+  --color-primary-dark: #2e1260;
+  --color-secondary: #b08eeb; /* decorative only — fails WCAG AA as text */
+  --color-accent: #8442f5;
+  --color-accent-light: #f0eaff;
+  --color-muted: #5a5466;
+  --color-divider: #e0d8ed;
+
+  /* Semantic colors */
+  --color-destructive: #c0392b;
+  --color-success: #2d7a4f;
+  --color-warning: #d4a017;
+
+  /* Warm accent palette — saffron / cream (wellness / ayurvedic heritage) */
+  --color-saffron: #c8651c;
+  --color-saffron-soft: #e59b5c;
+  --color-saffron-light: #f6dfc6;
+  --color-cream: #faf3e7;
+  --color-ink: #170a2e;
+  --color-sage: #7a8f6a;
+
+  /* WhatsApp brand (exception to Zorova palette; required by WhatsApp brand guide) */
+  --color-whatsapp: #25d366;
+
+  /* Type scale — 4 sizes / 2 weights (per UI-SPEC) */
+  --text-display: 3.5rem;       /*  56px — desktop */
+  --text-display-mobile: 2.25rem; /* 36px — mobile */
+  --text-heading: 2.5rem;        /*  40px — desktop */
+  --text-heading-mobile: 1.75rem; /* 28px — mobile */
+  --text-subheading: 1.25rem;    /*  20px */
+  --text-body: 1rem;             /*  16px (WCAG AA floor) */
+
+  --leading-display: 1.2;
+  --leading-heading: 1.25;
+  --leading-subheading: 1.3;
+  --leading-body: 1.6;
+
+  /* Radii */
+  --radius-sm: 0.5rem;   /*  8px */
+  --radius-md: 0.75rem;  /* 12px */
+  --radius-lg: 1rem;     /* 16px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px rgba(62, 27, 124, 0.06);
+  --shadow-card-hover: 0 8px 32px rgba(62, 27, 124, 0.12);
+  --shadow-nav: 0 1px 8px rgba(62, 27, 124, 0.08);
+  --shadow-cta: 0 8px 24px rgba(62, 27, 124, 0.25);
+  --shadow-fab: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+
+@theme inline {
+  /* Fonts — values come from next/font CSS variables declared in layout.tsx */
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-jakarta);
+}
+
+/* Gradients — referenced via `bg-[image:var(--gradient-hero)]` or utilities below */
+:root {
+  --gradient-hero: linear-gradient(135deg, #3e1b7c 0%, #6b3fa0 50%, #8442f5 100%);
+  --gradient-cta: linear-gradient(135deg, #3e1b7c 0%, #8442f5 100%);
+  --gradient-warm: linear-gradient(135deg, #faf3e7 0%, #f6dfc6 55%, #e59b5c 100%);
+  --gradient-dusk: radial-gradient(ellipse at 20% 0%, #5b2ea8 0%, #2e1260 55%, #170a2e 100%);
+  --gradient-ink-warm: linear-gradient(135deg, #170a2e 0%, #3e1b7c 50%, #c8651c 110%);
+  --noise-svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* -----------------------------------------------------------------------------
+   Base layer — global resets, focus ring, typography defaults
+   ----------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  /* Accessible focus ring — accent color, 2px offset */
+  *:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-light);
+    color: var(--color-primary);
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Utilities layer — Zorova helpers
+   ----------------------------------------------------------------------------- */
+
+@layer utilities {
+  /* Typographic roles (4 sizes, 2 weights per UI-SPEC) */
+  .type-display {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+    font-size: var(--text-display-mobile);
+    line-height: var(--leading-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  @media (min-width: 768px) {
+    .type-display {
+      font-size: var(--text-display);
+    }
+  }
+
+  .type-heading {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+    font-size: var(--text-heading-mobile);
+    line-height: var(--leading-heading);
+    font-weight: 700;
+    letter-spacing: -0.005em;
+  }
+
+  @media (min-width: 768px) {
+    .type-heading {
+      font-size: var(--text-heading);
+    }
+  }
+
+  .type-subheading {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--text-subheading);
+    line-height: var(--leading-subheading);
+    font-weight: 700;
+  }
+
+  .type-body {
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    font-weight: 400;
+  }
+
+  /* Gradient utilities */
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .bg-gradient-cta {
+    background-image: var(--gradient-cta);
+  }
+
+  /* Section rhythm helpers — use alternating .section-surface / .section-bg */
+  .section-surface {
+    background-color: var(--color-surface);
+  }
+
+  .section-bg {
+    background-color: var(--color-bg);
+  }
+
+  /* Warm / cream section utilities */
+  .section-cream {
+    background-color: var(--color-cream);
+  }
+  .section-ink {
+    background: var(--gradient-dusk);
+    color: #fbf5ec;
+  }
+  .section-warm {
+    background-image: var(--gradient-warm);
+  }
+
+  /* Italic serif accent — for "living well" style feature words */
+  .serif-italic {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Hairline rule — 1px divider in accent */
+  .hairline {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--color-divider) 20%,
+      var(--color-divider) 80%,
+      transparent 100%
+    );
+  }
+
+  /* Grain overlay — apply to a relative container */
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: var(--noise-svg);
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+  }
+
+  .grain-strong::after {
+    opacity: 0.18;
+  }
+
+  /* Mandala rotation — slow ambient */
+  @keyframes zorova-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .spin-slow {
+    animation: zorova-spin 80s linear infinite;
+  }
+  .spin-slower {
+    animation: zorova-spin 160s linear infinite;
+  }
+  .spin-reverse {
+    animation: zorova-spin 120s linear infinite reverse;
+  }
+
+  /* Breathing — subtle scale pulse for ambient shapes */
+  @keyframes zorova-breathe {
+    0%, 100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.04); opacity: 1; }
+  }
+  .breathe {
+    animation: zorova-breathe 6s ease-in-out infinite;
+  }
+
+  /* Shimmer — subtle underline for links */
+  @keyframes zorova-underline {
+    from { background-size: 0 2px; }
+    to { background-size: 100% 2px; }
+  }
+
+  /* Editorial number label (used in About, etc.) */
+  .eyebrow-numeral {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+    font-style: italic;
+    color: var(--color-saffron);
+    letter-spacing: 0.04em;
+  }
+
+  /* Editorial card — typography-led, no accent stripes */
+  .card-warm {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Skip-to-content — visually hidden until focused */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-accent);
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-cta);
+    transition: top 150ms ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Motion preferences
+   ----------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
