@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
@@ -23,6 +24,7 @@ interface ComingSoonProps {
   preview: Preview[];
   waitlistLabel: string;
   note?: string;
+  heroImage?: { src: string; alt: string };
 }
 
 export function ComingSoon({
@@ -33,6 +35,7 @@ export function ComingSoon({
   preview,
   waitlistLabel,
   note,
+  heroImage,
 }: ComingSoonProps) {
   return (
     <>
@@ -45,30 +48,52 @@ export function ComingSoon({
           <Mandala className="h-full w-full spin-slower" />
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
-          <Reveal>
-            <SectionEyebrow className="text-white/70">{eyebrow}</SectionEyebrow>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 max-w-4xl font-[var(--font-serif)] text-[clamp(2.5rem,6vw,5.25rem)] font-bold leading-[1.02] tracking-[-0.02em] text-white">
-              {headline}{" "}
-              <span className="serif-italic text-[var(--color-saffron-soft)]">
-                {italic}
+        <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-24 sm:px-6 sm:py-28 lg:grid-cols-12 lg:gap-16 lg:px-8">
+          <div className={heroImage ? "lg:col-span-7" : "lg:col-span-12"}>
+            <Reveal>
+              <SectionEyebrow className="text-white/70">
+                {eyebrow}
+              </SectionEyebrow>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <h1 className="mt-6 max-w-4xl font-[var(--font-serif)] text-[clamp(2.5rem,6vw,5.25rem)] font-bold leading-[1.02] tracking-[-0.02em] text-white">
+                {headline}{" "}
+                <span className="serif-italic text-[var(--color-saffron-soft)]">
+                  {italic}
+                </span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <p className="mt-6 max-w-2xl text-lg text-white/75">{lede}</p>
+            </Reveal>
+            <Reveal delay={0.24}>
+              <span className="mt-8 inline-flex items-center gap-3 rounded-full border border-[var(--color-saffron-soft)]/40 bg-[var(--color-saffron-soft)]/10 px-4 py-2 text-sm font-semibold text-[var(--color-saffron-soft)]">
+                <span
+                  aria-hidden="true"
+                  className="h-2 w-2 animate-pulse rounded-full bg-[var(--color-saffron-soft)]"
+                />
+                In development · launching soon
               </span>
-            </h1>
-          </Reveal>
-          <Reveal delay={0.18}>
-            <p className="mt-6 max-w-2xl text-lg text-white/75">{lede}</p>
-          </Reveal>
-          <Reveal delay={0.24}>
-            <span className="mt-8 inline-flex items-center gap-3 rounded-full border border-[var(--color-saffron-soft)]/40 bg-[var(--color-saffron-soft)]/10 px-4 py-2 text-sm font-semibold text-[var(--color-saffron-soft)]">
-              <span
-                aria-hidden="true"
-                className="h-2 w-2 animate-pulse rounded-full bg-[var(--color-saffron-soft)]"
-              />
-              In development · launching soon
-            </span>
-          </Reveal>
+            </Reveal>
+          </div>
+          {heroImage && (
+            <Reveal delay={0.2} className="lg:col-span-5">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-primary-dark)]">
+                <Image
+                  src={heroImage.src}
+                  alt={heroImage.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  className="object-cover"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+                />
+              </div>
+            </Reveal>
+          )}
         </div>
         <WaveLine
           aria-hidden="true"

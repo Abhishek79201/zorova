@@ -206,6 +206,30 @@ export default function SportsPage() {
           </Reveal>
         </div>
 
+        <Reveal delay={0.12}>
+          <div className="relative mt-14 aspect-[16/7] overflow-hidden rounded-[var(--radius-lg)] bg-[var(--color-primary-dark)]">
+            <Image
+              src={images.sportsRecovery.src}
+              alt={images.sportsRecovery.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 80vw"
+              className="object-cover"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+            />
+            <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--color-saffron-soft)]">
+                Recovery in Practice
+              </p>
+              <p className="mt-2 max-w-2xl font-[var(--font-serif)] text-xl italic sm:text-2xl">
+                The work between the work — where performance is actually built.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
         <Stagger
           className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           gap={0.06}
