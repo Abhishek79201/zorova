@@ -5,7 +5,7 @@ import { ComingSoon } from "@/components/coming-soon";
 export const metadata: Metadata = {
   title: "Membership",
   description:
-    "Zorova Membership — recurring wellness sessions, priority booking, and family-friendly plans that make ongoing care effortless.",
+    "Zorova Membership — recurring recovery sessions, priority booking, and family-friendly body-care plans that make ongoing care effortless.",
   alternates: { canonical: "/membership" },
 };
 
@@ -39,7 +39,7 @@ export default function MembershipPage() {
         },
         {
           t: "Members-Only Modalities",
-          b: "Quarterly access to specialist modalities — shirodhara, prenatal, sports recovery — as they enter rotation.",
+          b: "Quarterly access to specialist recovery modalities — prenatal, senior mobility, sports recovery — as they enter rotation.",
         },
       ]}
       waitlistLabel="Join Membership Waitlist"

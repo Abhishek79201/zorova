@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The Zorova story — why we're normalising professional massage and spa culture in Indian society, and building trust-first wellness for every household.",
+    "The Zorova story — why we're building a complete body-care, recovery, and performance platform for every Indian household, trusted at every stage of life.",
   alternates: { canonical: "/about" },
 };
 
@@ -75,8 +75,8 @@ export default function AboutPage() {
               <p className="mt-6 max-w-xl text-lg text-[var(--color-muted)]">
                 Zorova was built on a simple observation: in a country with
                 three thousand years of healing tradition, it's still strangely
-                difficult to book a good, safe, professional massage at home.
-                We're here to change that.
+                difficult to book a good, safe, professional recovery session
+                at home. We're here to change that.
               </p>
             </Reveal>
           </div>
@@ -133,8 +133,8 @@ export default function AboutPage() {
             <Reveal delay={0.1}>
               <p className="mt-6 text-lg leading-relaxed text-[var(--color-muted)]">
                 Zorova closes that gap with software, training, verification,
-                and a stubborn belief that a good massage is infrastructure —
-                not a luxury.
+                and a stubborn belief that dedicated body care is
+                infrastructure — not a luxury.
               </p>
             </Reveal>
           </div>
@@ -157,23 +157,24 @@ export default function AboutPage() {
               <h2 className="type-heading mt-5 text-[var(--color-ink)] sm:text-[2.75rem]">
                 A quiet revolution in how India{" "}
                 <span className="serif-italic text-[var(--color-saffron)]">
-                  thinks about massage
+                  thinks about body care
                 </span>
                 .
               </h2>
             </Reveal>
             <Reveal delay={0.08}>
               <p className="mt-6 text-lg leading-relaxed text-[var(--color-muted)]">
-                In India, the word <em>massage</em> still lives under a cloud.
-                The country that wrote Ayurveda — the world's oldest manual on
-                therapeutic touch — has grown up whispering about it, hiding
-                it, and at worst, confusing it with the dim back-lanes of a
-                body parlour.
+                In India, body care still lives under a cloud of old
+                associations — spa promos, whispered recommendations, and an
+                industry too many parts of which earned its reputation. The
+                country that wrote the world's oldest manual on therapeutic
+                touch deserves better.
               </p>
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-5 text-lg leading-relaxed text-[var(--color-muted)]">
-                Zorova exists to take that word back.
+                Zorova exists to rebuild body care as infrastructure —
+                clinical, safe, and delivered in daylight.
               </p>
             </Reveal>
           </div>
@@ -196,8 +197,8 @@ export default function AboutPage() {
                     &ldquo;
                   </span>
                   <p className="mt-2 font-[var(--font-serif)] text-2xl italic leading-snug sm:text-[1.75rem]">
-                    A good massage is not a guilty pleasure. It is not shady.
-                    It is not something to be explained away. It is medicine —
+                    Body care is not a guilty pleasure. It is not shady. It
+                    is not something to be explained away. It is medicine —
                     three thousand years old, delivered by trained hands, in
                     daylight, for every household that wants it.
                   </p>
@@ -221,7 +222,7 @@ export default function AboutPage() {
           {[
             {
               t: "The stigma we're unlearning",
-              b: "For a generation, \"spa\" and \"massage\" have been whispered words in India — tangled with cultural hesitation, safety fears, and an industry too many parts of which earned its reputation.",
+              b: "For a generation, \"spa\" culture has been tangled with cultural hesitation, safety fears, and an industry too many parts of which earned its reputation. Zorova rebuilds body care as something clinical, professional, and daylight-clear.",
             },
             {
               t: "The truth we're reclaiming",
@@ -396,7 +397,7 @@ export default function AboutPage() {
           <Reveal delay={0.16}>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg" variant="primary">
-                <Link href="/contact">Book Your Session</Link>
+                <Link href="/contact?intent=book">Book Recovery Session</Link>
               </Button>
               <Button asChild size="lg" variant="outline">
                 <Link href="/careers">Work With Us</Link>

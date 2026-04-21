@@ -182,10 +182,10 @@ export function ComingSoon({
           <Reveal delay={0.16}>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg" variant="primary">
-                <Link href="/massages">Book a Massage</Link>
+                <Link href="/contact?intent=book">Book Recovery Session</Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/stretch">Try Stretch Therapy</Link>
+                <Link href="/stretch">Try Mobility Therapy</Link>
               </Button>
             </div>
           </Reveal>
