@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Help & Contact",
   description:
-    "Get in touch with Zorova by email, phone, or WhatsApp. Book a session, ask a question, or raise a concern — we respond within a few hours, every day.",
+    "Get in touch with Zorova by email, phone, or WhatsApp. Book a recovery session, ask a question, or raise a concern — we respond within a few hours, every day.",
   alternates: { canonical: "/contact" },
 };
 
@@ -40,12 +40,12 @@ const channels = [
 
 const faqs = [
   {
-    q: "What happens after I book a session?",
+    q: "What happens after I book a recovery session?",
     a: "You'll receive an immediate WhatsApp confirmation with your therapist's name, photo, and ID, along with a live arrival timer. A brief health questionnaire is shared 30 minutes before the session so your therapist can tailor the experience.",
   },
   {
     q: "Do I need to prepare anything at home?",
-    a: "Just a quiet room, approximately 2.5m × 2.5m of floor space, and access to electricity and water. Your therapist brings linens, warm oils, the portable table, and aromatics. If you'd prefer to use your own sheets, simply let us know.",
+    a: "Just a quiet room, approximately 2.5m × 2.5m of floor space, and access to electricity and water. Your therapist brings linens, recovery oils, the portable table, and everything needed. If you'd prefer to use your own sheets, simply let us know.",
   },
   {
     q: "How do I reschedule or cancel?",
@@ -94,8 +94,8 @@ export default function ContactPage() {
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mt-6 max-w-xl text-lg text-white/75">
-              Book a session, raise a concern, or just ask — the Zorova team
-              answers every message, usually within a few minutes.
+              Book a recovery session, raise a concern, or just ask — the
+              Zorova team answers every message, usually within a few minutes.
             </p>
           </Reveal>
         </div>
@@ -199,7 +199,7 @@ export default function ContactPage() {
                   <option value="" disabled>
                     Choose a topic…
                   </option>
-                  <option>Book a session</option>
+                  <option>Book a recovery session</option>
                   <option>Question about a past session</option>
                   <option>Billing / payments</option>
                   <option>Corporate / bulk booking</option>

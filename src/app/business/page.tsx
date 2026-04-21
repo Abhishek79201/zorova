@@ -5,7 +5,7 @@ import { ComingSoon } from "@/components/coming-soon";
 export const metadata: Metadata = {
   title: "Zorova for Business",
   description:
-    "Bring Zorova to your workplace. On-site massage, stretch clinics, and recurring programmes that reduce burnout, boost retention, and take benefits seriously.",
+    "Bring Zorova to your workplace. On-site recovery sessions, mobility clinics, and recurring body-care programmes that reduce burnout, boost retention, and take employee performance seriously.",
   alternates: { canonical: "/business" },
 };
 
@@ -13,16 +13,16 @@ export default function BusinessPage() {
   return (
     <ComingSoon
       eyebrow="Zorova for Business"
-      headline="Make wellness part of the job —"
+      headline="Make body care part of the job —"
       italic="without making it an HR chore."
-      lede="On-site chair massage, monthly stretch clinics, and quarterly wellness retreats for teams that measure retention in quiet acts of care."
+      lede="On-site recovery sessions, monthly mobility clinics, and quarterly performance retreats for teams that measure retention in quiet acts of care."
       preview={[
         {
-          t: "On-Site Chair Massage",
+          t: "On-Site Recovery Sessions",
           b: "A quiet room, our therapists, fifteen minutes per employee. Measurable impact by Friday.",
         },
         {
-          t: "Monthly Stretch Clinics",
+          t: "Monthly Mobility Clinics",
           b: "Small group sessions tuned to your team's posture patterns — developer shoulders, designer wrists, founder jaws.",
         },
         {
@@ -30,8 +30,8 @@ export default function BusinessPage() {
           b: "Discreet, dedicated therapist coverage for leadership teams and high-travel roles.",
         },
         {
-          t: "Wellness Retreats",
-          b: "Full-day off-sites at partner properties — massage, stretch, breathwork, and food that earns its place.",
+          t: "Performance Retreats",
+          b: "Full-day off-sites at partner properties — recovery, mobility, breathwork, and food that earns its place.",
         },
         {
           t: "Reporting You Can Share",

@@ -5,7 +5,7 @@ import { ComingSoon } from "@/components/coming-soon";
 export const metadata: Metadata = {
   title: "Zorova Gifts",
   description:
-    "Give the gift of in-home wellness. Beautifully crafted digital Zorova gift cards for relaxation, recovery, and everyday care. Launching soon.",
+    "Give the gift of in-home recovery and body care. Beautifully crafted digital Zorova gift cards for performance, recovery, and everyday care. Launching soon.",
   alternates: { canonical: "/gifts" },
 };
 
@@ -15,7 +15,7 @@ export default function GiftsPage() {
       eyebrow="Zorova Gifts"
       headline="The gift of a —"
       italic="quieter body."
-      lede="A beautifully designed digital gift card, redeemable against any Zorova session. For birthdays, anniversaries, new parents, graduations, and the times nothing else quite fits."
+      lede="A beautifully designed digital gift card, redeemable against any Zorova recovery session. For birthdays, anniversaries, new parents, graduations, and the times nothing else quite fits."
       preview={[
         {
           t: "Any Denomination",
@@ -35,7 +35,7 @@ export default function GiftsPage() {
         },
         {
           t: "Redeemable Anywhere",
-          b: "Any Zorova city, any modality, any therapist — no modality lock-ins, no expiry games.",
+          b: "Any Zorova city, any session type, any therapist — no lock-ins, no expiry games.",
         },
         {
           t: "Physical Keepsake Option",

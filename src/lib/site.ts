@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "Zorova",
   legalName: "Zorova Wellness Pvt. Ltd.",
-  tagline: "Wellness, Delivered to Your Doorstep",
-  footerTagline: "Wellness for Every Home",
+  tagline: "Complete Care for Your Body — At Every Stage of Life",
+  footerTagline: "Recovery. Performance. Body Care for Every Life Stage.",
   description:
-    "On-demand home massage, spa, and stretch therapy. Certified therapists deliver professional wellness to your doorstep — for every Indian household.",
+    "Zorova is a modern body care, recovery, and performance platform — supporting children, youth, working professionals, women, and seniors with clinical-grade recovery sessions and mobility therapy.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://zorova.in",
   locale: "en-IN",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "91XXXXXXXXXX",
@@ -20,24 +20,32 @@ export const siteConfig = {
 } as const;
 
 export const primaryNav = [
-  { href: "/", label: "Home" },
-  { href: "/massages", label: "Massages" },
-  { href: "/stretch", label: "Stretch" },
+  { href: "/sports", label: "Sports" },
+  { href: "/membership", label: "Membership" },
+  { href: "/gifts", label: "Gifts" },
+  { href: "/careers", label: "Work With Us" },
+  { href: "/business", label: "For Business" },
+] as const;
+
+export const secondaryNav = [
+  { href: "/massages", label: "Recovery Sessions" },
+  { href: "/stretch", label: "Mobility Therapy" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Journal" },
 ] as const;
 
 export const footerNav = {
   explore: [
-    { href: "/massages", label: "Massages" },
-    { href: "/stretch", label: "Stretch" },
+    { href: "/massages", label: "Recovery Sessions" },
+    { href: "/stretch", label: "Mobility Therapy" },
+    { href: "/sports", label: "Sports" },
     { href: "/membership", label: "Membership" },
     { href: "/gifts", label: "Gifts" },
     { href: "/blog", label: "Journal" },
   ],
   company: [
     { href: "/about", label: "About Zorova" },
-    { href: "/careers", label: "Work with Us" },
+    { href: "/careers", label: "Work With Us" },
     { href: "/business", label: "For Business" },
     { href: "/franchise", label: "Own a Franchise" },
     { href: "/contact", label: "Help & Contact" },

@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { ZorovaMark } from "@/components/zorova-mark";
 import { cn } from "@/lib/cn";
-import { primaryNav, siteConfig } from "@/lib/site";
+import { primaryNav, secondaryNav, siteConfig } from "@/lib/site";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -39,13 +39,13 @@ export function SiteNavigation() {
       className={cn(
         "sticky top-0 z-40 w-full transition-[background-color,box-shadow,backdrop-filter] duration-200 ease-out",
         scrolled
-          ? "bg-white/85 shadow-[var(--shadow-nav)] [backdrop-filter:saturate(1.2)_blur(12px)]"
+          ? "bg-white/90 shadow-[var(--shadow-nav)] [backdrop-filter:saturate(1.2)_blur(12px)]"
           : "bg-white",
       )}
     >
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6 lg:px-8"
+        className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-[4.5rem] lg:px-8"
       >
         <Link
           href="/"
@@ -55,8 +55,8 @@ export function SiteNavigation() {
           <ZorovaMark />
         </Link>
 
-        {/* Desktop nav */}
-        <ul className="hidden flex-1 items-center justify-center gap-6 lg:flex">
+        {/* Desktop nav — business-critical links */}
+        <ul className="hidden flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
           {primaryNav.map((item) => {
             const active = isActive(pathname, item.href);
             return (
@@ -65,7 +65,7 @@ export function SiteNavigation() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "type-body relative inline-flex h-10 items-center rounded-sm px-1 font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-accent)]",
+                    "type-body relative inline-flex h-10 items-center rounded-sm px-3 text-sm font-semibold text-[var(--color-text)] transition-colors hover:text-[var(--color-accent)]",
                     active && "text-[var(--color-primary)]",
                   )}
                 >
@@ -73,7 +73,7 @@ export function SiteNavigation() {
                   {active && (
                     <span
                       aria-hidden="true"
-                      className="absolute -bottom-0.5 left-1 right-1 h-[2px] rounded-full bg-[var(--color-accent)]"
+                      className="absolute -bottom-0.5 left-3 right-3 h-[2px] rounded-full bg-[var(--color-accent)]"
                     />
                   )}
                 </Link>
@@ -83,8 +83,22 @@ export function SiteNavigation() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" variant="accent" className="hidden sm:inline-flex">
-            <Link href="/contact">Book Now</Link>
+          {/* Sign In / Sign Up — always visible top-right on ≥ sm */}
+          <Button
+            asChild
+            size="sm"
+            variant="ghost"
+            className="hidden h-10 px-4 text-sm sm:inline-flex"
+          >
+            <Link href="/contact?intent=signin">Sign In</Link>
+          </Button>
+          <Button
+            asChild
+            size="sm"
+            variant="accent"
+            className="hidden h-10 px-4 text-sm sm:inline-flex"
+          >
+            <Link href="/contact?intent=signup">Sign Up</Link>
           </Button>
 
           {/* Mobile hamburger */}
@@ -101,35 +115,87 @@ export function SiteNavigation() {
             <SheetContent side="right">
               <div className="flex flex-col gap-1">
                 <SheetTitle>Menu</SheetTitle>
-                <SheetDescription>{siteConfig.tagline}</SheetDescription>
+                <SheetDescription>
+                  This is not a spa service. This is a complete body care system.
+                </SheetDescription>
               </div>
 
-              <ul className="flex flex-col gap-1">
-                {primaryNav.map((item) => {
-                  const active = isActive(pathname, item.href);
-                  return (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        aria-current={active ? "page" : undefined}
-                        onClick={() => setDrawerOpen(false)}
-                        className={cn(
-                          "flex h-11 items-center rounded-[var(--radius-sm)] px-3 text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-light)] hover:text-[var(--color-accent)]",
-                          active &&
-                            "bg-[var(--color-accent-light)] font-semibold text-[var(--color-primary)]",
-                        )}
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              <div className="flex flex-col gap-6">
+                <div>
+                  <p className="mb-2 px-3 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-saffron)]">
+                    Explore
+                  </p>
+                  <ul className="flex flex-col gap-1">
+                    {primaryNav.map((item) => {
+                      const active = isActive(pathname, item.href);
+                      return (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            aria-current={active ? "page" : undefined}
+                            onClick={() => setDrawerOpen(false)}
+                            className={cn(
+                              "flex h-11 items-center rounded-[var(--radius-sm)] px-3 text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-light)] hover:text-[var(--color-accent)]",
+                              active &&
+                                "bg-[var(--color-accent-light)] font-semibold text-[var(--color-primary)]",
+                            )}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
 
-              <div className="mt-auto">
+                <div>
+                  <p className="mb-2 px-3 text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-saffron)]">
+                    Services
+                  </p>
+                  <ul className="flex flex-col gap-1">
+                    {secondaryNav.map((item) => {
+                      const active = isActive(pathname, item.href);
+                      return (
+                        <li key={item.href}>
+                          <Link
+                            href={item.href}
+                            aria-current={active ? "page" : undefined}
+                            onClick={() => setDrawerOpen(false)}
+                            className={cn(
+                              "flex h-11 items-center rounded-[var(--radius-sm)] px-3 text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent-light)] hover:text-[var(--color-accent)]",
+                              active &&
+                                "bg-[var(--color-accent-light)] font-semibold text-[var(--color-primary)]",
+                            )}
+                          >
+                            {item.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-auto flex flex-col gap-3">
                 <Button asChild size="lg" variant="accent" className="w-full">
+                  <Link
+                    href="/contact?intent=signup"
+                    onClick={() => setDrawerOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="w-full">
+                  <Link
+                    href="/contact?intent=signin"
+                    onClick={() => setDrawerOpen(false)}
+                  >
+                    Sign In
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="primary" className="w-full">
                   <Link href="/contact" onClick={() => setDrawerOpen(false)}>
-                    Book Now
+                    Book Recovery Session
                   </Link>
                 </Button>
               </div>

@@ -17,7 +17,7 @@ import {
 export const metadata: Metadata = {
   title: "Journal",
   description:
-    "The Zorova Journal — honest, researched writing on massage, stretch therapy, Ayurveda, sleep, stress, and modern Indian wellness.",
+    "The Zorova Journal — honest, researched writing on recovery, mobility, body care, sleep, stress, and modern Indian performance.",
   alternates: { canonical: "/blog" },
 };
 
@@ -149,8 +149,8 @@ export default function BlogPage() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mt-5 max-w-xl text-lg text-[var(--color-muted)]">
-              Essays and guides on massage, stretch therapy, Ayurveda, sleep
-              and modern wellness — researched and edited by the Zorova care
+              Essays and guides on recovery, mobility, body care, sleep and
+              modern performance — researched and edited by the Zorova care
               team.
             </p>
           </Reveal>
