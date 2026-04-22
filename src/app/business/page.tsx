@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { ComingSoon } from "@/components/coming-soon";
+import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Zorova for Business",
@@ -44,6 +45,7 @@ export default function BusinessPage() {
       ]}
       waitlistLabel="Request a Business Proposal"
       note="Our corporate team will share a deck, pricing, and pilot options within 48 hours."
+      heroImage={images.businessTeam}
     />
   );
 }
